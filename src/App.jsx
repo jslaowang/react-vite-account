@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import routes from '@/router'
 import {
   BrowserRouter as Router,
-  Switch,Route
+  Switch,
+  Route
 } from "react-router-dom"
 
 import { ConfigProvider } from 'zarm'
