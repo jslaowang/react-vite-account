@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 import { TabBar } from 'zarm'
 import s from './style.module.less'
-import CustomerIcon from '@/components/CustomerIcon'
+import CustomIcon from '@/components/CustomIcon'
 
 const Navbar = ({ showNav }) => {
   const [activeKey, setActiveKey] = useState('/')
@@ -16,9 +16,9 @@ const Navbar = ({ showNav }) => {
 
   return (
     <TabBar visible={showNav} className={s.tab} activeKey={activeKey} onChange={changeTab}>
-      <TabBar.Item itemKey="/" title="账单" icon={<CustomerIcon type="zhangdan" />} />
-      <TabBar.Item itemKey="/data" title="统计" icon={<CustomerIcon type="tongji" />} />
-      <TabBar.Item itemKey="/user" title="我的" icon={<CustomerIcon type="wode" />} />
+      <TabBar.Item itemKey="/" title="账单" icon={<CustomIcon type="zhangdan" />} />
+      <TabBar.Item itemKey="/data" title="统计" icon={<CustomIcon type="tongji" />} />
+      <TabBar.Item itemKey="/user" title="我的" icon={<CustomIcon type="wode" />} />
     </TabBar>
   )
 }
