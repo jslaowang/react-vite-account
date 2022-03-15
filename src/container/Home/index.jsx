@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Icon, Pull } from 'zarm'
 import dayjs from 'dayjs'
-import BillItem from '@/components/BillItem'
 import { get, REFRESH_STATE, LOAD_STATE } from '@/utils' // Pull 组件需要的一些常量
-import s from './style.module.less'
+import BillItem from '@/components/BillItem'
 import PopupType from '@/components/PopupType'
 import PopupDate from '@/components/PopupDate'
+import PopupAddBill from '@/components/PopupAddBill'
+import CustomerIcom from '@/components/CustomIcon'
+import s from './style.module.less'
 
 const Home = () => {
+  const addRef = useRef()
   const typeRef = useRef()
   const monthRef = useRef()
   const [currentSelect, setCurrentSelect] = useState({}); // 当前筛选类型
@@ -25,7 +28,7 @@ const Home = () => {
   }, [page, currentSelect, currentTime])
 
   const getBillList = async () => {
-    const { data } = await get(`/api/bill/list?${page}&page_size=5&date=${currentTime}&type_id=${currentSelect.id || 'all'}`)
+    const { data } = await get(`/api/bill/list?page=${page}&page_size=5&date=${currentTime}&type_id=${currentSelect.id || 'all'}`);
     // 下拉刷新
     if (page === 1) {
       setList(data.list)
@@ -40,7 +43,7 @@ const Home = () => {
   }
   const refreshData = () => {
     setRefreshing(REFRESH_STATE.loading)
-    if (page === 1) {
+    if (page !== 1) {
       setPage(1)
     } else {
       getBillList()
@@ -76,6 +79,10 @@ const Home = () => {
     setRefreshing(REFRESH_STATE.loading)
     setPage(1)
     setCurrentTime(item)
+  }
+
+  const addToggle = () => {
+    addRef.current && addRef.current.show()
   }
 
   return (
@@ -124,6 +131,8 @@ const Home = () => {
       </div>
       <PopupType ref={typeRef} onSelect={select} />
       <PopupDate ref={monthRef} mode="month" onSelect={selectMonth} />
+      <div className={s.add} onClick={addToggle}><CustomerIcom type='tianjia' /></div>
+      <PopupAddBill ref={addRef} onReload={refreshData} />
     </div>
   )
 }
