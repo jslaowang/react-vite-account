@@ -123,7 +123,7 @@ const Home = () => {
             >
               {
                 list.map((item, index) =>
-                  <BillItem bill={item} key={index} />
+                  <BillItem bill={item} key={index} onReload={refreshData} />
                 )
               }
             </Pull> : null
