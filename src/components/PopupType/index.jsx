@@ -48,17 +48,17 @@ const PopupType = forwardRef(({ onSelect }, ref) => {
           <Icon type="wrong" className={s.cross} onClick={() => setShow(false)} />
         </div>
         <div className={s.content}>
-          <div onClick={choseType({ id: 'all' })} className={cx({ [s.all]: true, [s.active]: active === 'all' })}>全部类型</div>
+          <div onClick={() => choseType({ id: 'all' })} className={cx({ [s.all]: true, [s.active]: active == 'all' })}>全部类型</div>
           <div className={s.title}>支出</div>
           <div className={s.expenseWrap}>
             {
-              expense.map((item, index) => <p key={index} onClick={() => choseType(item)} className={cx({ [s.active]: active === item.id })}>{item.name}</p>)
+              expense.map((item, index) => <p key={index} onClick={() => choseType(item)} className={cx({ [s.active]: active == item.id })} >{item.name}</p>)
             }
           </div>
           <div className={s.title}>收入</div>
           <div className={s.incomeWrap}>
             {
-              income.map((item, index) => <p key={index} onClick={() => choseType(item)} className={cx({ [s.active]: active === item.id })}>{item.name}</p>)
+              income.map((item, index) => <p key={index} onClick={() => choseType(item)} className={cx({ [s.active]: active == item.id })} >{item.name}</p>)
             }
           </div>
         </div>
