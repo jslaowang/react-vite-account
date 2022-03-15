@@ -1,5 +1,5 @@
 {
-  "name": "react-vite-accout",
+  "name": "react-vite-account",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -8,9 +8,12 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.10.5",
     "lib-flexible": "^0.3.2",
     "postcss-pxtorem": "^6.0.0",
     "react": "^17.0.0",
+    "react-captcha-code": "^1.0.7",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.0",
     "zarm": "^2.9.0"

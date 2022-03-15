@@ -8,8 +8,6 @@ axios.defaults.withCredentials = true
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers['Authorization'] = `${localStorage.getItem('token') || null}`
 axios.defaults.headers.post['Content-Type'] = 'application/json'
-console.log(11);
-console.log(axios);
 axios.interceptors.response.use(res => {
   if (typeof res.data !== 'object') {
     Toast.show('服务端异常！')
