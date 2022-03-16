@@ -81,9 +81,6 @@ const Data = () => {
 
   const changeType = (type) => {
     setTotalType(type)
-    setTimeout(() => {
-      console.log('totalType: ', totalType);
-    }, 1000)
     // 绘图
     setPieChart(type === 'expense' ? expenseData : incomeData)
   }
