@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Cell, Input, Button, Checkbox, Toast } from 'zarm'
+import { useHistory } from "react-router-dom";
 import CustomIcon from '@/components/CustomIcon'
 import s from './style.module.less'
 import axios from '@/utils/axios'
@@ -9,6 +10,7 @@ const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [type, setType] = useState('login')
+  const history = useHistory() // 路由
 
   const onSubmit = async () => {
     if (!username) {
@@ -28,6 +30,7 @@ const Login = () => {
       if (type === 'login') {
         // 将 token 写入 localStorage
         localStorage.setItem('token', data.token);
+        history.push(`/`)
       } else {
         setType('login')
       }
@@ -55,10 +58,6 @@ const Login = () => {
         </Cell>
       </div>
       <div className={s.operation}>
-        <div className={s.agree}>
-          <Checkbox />
-          <label className='text-light'>阅读并同意<a>《掘掘手札条款》</a></label>
-        </div>
         <Button block theme='primary' onClick={onSubmit}>{type === 'login' ? '登录' : '注册'}</Button>
       </div>
     </div>

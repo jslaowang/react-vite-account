@@ -1,0 +1,65 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  height: 100%;
+  background: url('//s.yezgea02.com/1615971681107/%E4%BD%8D%E5%9B%BE%402x.png') no-repeat;
+
+  .avatar {
+    border-radius: 50%;
+    width: 100px;
+    margin-top: 120px;
+  }
+
+  .name {
+    font-size: 16px;
+    margin: 24px 0 100px;
+    color: #fff;
+  }
+
+  .desc {
+    font-size: 14px;
+    color: #595959;
+  }
+
+  .box {
+    width: 100%;
+    overflow: hidden;
+    font-size: 16px;
+    color: #595959;
+
+    .track {
+      height: 40px;
+      margin-bottom: 5px;
+
+      .child {
+        margin-bottom: 10px;
+      }
+
+      //第一个弹幕
+      .child1 {
+        transform: translateX(375px); //文字起始位置
+        animation: scrollTo linear 6s infinite; //动画
+      }
+
+      //第二个弹幕
+      .child2 {
+        transform: translateX(425px); //文字起始位置
+        animation: scrollTo linear 6s infinite; //动画
+      }
+
+      //第三个弹幕
+      .child3 {
+        transform: translateX(475px); //文字起始位置
+        animation: scrollTo linear 6s infinite; //动画
+      }
+
+      @keyframes scrollTo {
+        to {
+          transform: translateX(-200px);
+        }
+      }
+    }
+  }
+}
